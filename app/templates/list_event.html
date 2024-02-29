@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Events</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Add custom styles here */
+        .event-image {
+            max-width: 100%;
+            max-height: 200px; /* Adjust the maximum height as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">All Events</h1>
+        <div class="row">
+            {% for event in events %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ url_for('static', filename='img/'+event.images1) }}" class="card-img-top event-image" alt="Event Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Event Name:</strong> {{ event.event_name }}</h5>
+                        <h5><strong>Description:</strong></h5>
+                        <p class="card-text">{{ event.description }}</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> {{ event.date }}</li>
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Place:</strong> {{ event.place }}</li>
+                            <li><i class="fas fa-user"></i> <strong>Coordinator(s):</strong>
+                                {% for coordinator in event.coordinator_name.split(',') %}
+                                                                        <br>{{ coordinator.strip() }}
+                                {% endfor %}
+                            </li>
+                            <li><i class="fas fa-phone-alt"></i> <strong>Contact Number:</strong> {{ event.number }}</li>
+                            <li><i class="fas fa-clock"></i> <strong>Time:</strong> {{ event.start_time }} - {{ event.end_time }}</li>
+                       
+                        </ul>
+                        <a href="{{ url_for('views.edit_event', event_id=event.id) }}" class="btn btn-primary">Edit Details</a>
+
+                        <br><br><br>
+                        <a href="{{ url_for('views.delete_event', event_id=event.id) }}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

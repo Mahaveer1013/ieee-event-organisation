@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+       <style>
+        /* Add custom styles here */
+        .event-image-preview {
+            max-width: 30%;
+            max-height: 200px; /* Adjust the maximum height as needed */
+            margin-bottom: 10px;
+        }
+    </style>
+    <div class="container">
+        <h1>Edit Event</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="coordinator_name">Coordinator Name:</label>
+                <input type="text" class="form-control" id="coordinator_name" name="coordinator_name" value="{{ event.coordinator_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="event_name">Event Name:</label>
+                <input type="text" class="form-control" id="event_name" name="event_name" value="{{ event.event_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" name="date" value="{{ event.date }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required>{{ event.description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="place">Place:</label>
+                <input type="text" class="form-control" id="place" name="place" value="{{ event.place }}" required>
+            </div>
+            <div class="form-group">
+                <label for="judge">Judge:</label>
+                <input type="text" class="form-control" id="judge" name="judge" value="{{ event.judge }}" required>
+            </div>
+            <div class="form-group">
+                <label for="number">Contact Number:</label>
+                <input type="text" class="form-control" id="number" name="number" value="{{ event.number }}" required>
+            </div>
+            <div class="form-group">
+                <label for="start_time">Start Time:</label>
+                <input type="time" class="form-control" id="start_time" name="start_time" value="{{ event.start_time }}" required>
+            </div>
+            <div class="form-group">
+                <label for="end_time">End Time:</label>
+                <input type="time" class="form-control" id="end_time" name="end_time" value="{{ event.end_time }}" required>
+            </div>
+                     <div class="form-group">
+                <label for="images1">Image 1:</label>
+                <input type="file" class="form-control-file" id="images1" name="images1">
+                <img id="images1-preview" class="event-image-preview" src="{{ url_for('static', filename='img/' + event.images1) }}" alt="Event Image 1">
+            </div>
+            <div class="form-group">
+                <label for="images2">Image 2:</label>
+                <input type="file" class="form-control-file" id="images2" name="images2">
+                <img id="images2-preview" class="event-image-preview" src="{{ url_for('static', filename='img/' + event.images2) }}" alt="Event Image 2">
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="{{ url_for('views.list_event') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script>
+        function previewImage(input, previewId) {
+            var preview = document.getElementById(previewId);
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function() {
+                preview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+
+        document.getElementById('images1').addEventListener('change', function() {
+            previewImage(this, 'images1-preview');
+        });
+
+        document.getElementById('images2').addEventListener('change', function() {
+            previewImage(this, 'images2-preview');
+        });
+    </script>
+</body>
+</html>

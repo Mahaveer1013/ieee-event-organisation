@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Event</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="event_name">Event Name:</label>
+                <input type="text" class="form-control" id="event_name" name="event_name" required>
+            </div>
+            <div class="form-group">
+                <label for="clg_name">College Name:</label>
+                <input type="text" class="form-control" id="clg_name" name="clg_name" required>
+            </div>
+            <div class="form-group">
+                <label for="dept_name">Department Name:</label>
+                <input type="text" class="form-control" id="dept_name" name="dept_name" required>
+            </div>
+            <div class="form-group">
+                <label for="club">Club:</label>
+                <input type="text" class="form-control" id="club" name="club" required>
+            </div>
+            <div class="form-group">
+                <label for="coordinator_name">Coordinator Name:</label>
+                <input type="text" class="form-control" id="coordinator_name" name="coordinator_name" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Event Date:</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="event_logo">Event Logo:</label>
+                <input type="file" class="form-control" id="event_logo" name="event_logo">
+            </div>
+            <button type="submit" class="btn btn-primary">Create Event</button>
+        </form>
+    </div>
+</body>
+</html>

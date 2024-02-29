@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEC - Events</title>
+    <link rel="icon" type="image/png" href="static/assets/logos/light-logo.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="event-name">
+            <div class="event-logo">
+                <img src="{{ url_for('static', filename='img/'+mainevent.event_logo) }}" alt="">
+                <!-- <img src="static/assets/logos/light-logo.png" alt=""> -->
+            </div>
+            <p class="name">{{mainevent.event_name}}</p>
+        </div>
+        <div class="menu_btn">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+        </div>
+        <ul class="nav_menu ">
+            <li class="menu-option">
+                <div class="icon"><i class="fas fa-home"></i></div>
+                <div class="text">Home</div>
+            </li>
+            <a href="#events" class="menu-option">
+                <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="text">Events</div>
+            </a>
+            <li class="menu-option">
+                <div class="icon"><i class="fas fa-info-circle"></i></div>
+                <div class="text"><a href="/register">Register</a></div>
+            </li>
+            <!-- <li class="menu-option">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="text">Location</div>
+            </li> -->
+        </ul>
+    </nav>
+    <div id="particles-js" class="background"></div>
+    <section  class="home">
+        <div class="host-name">
+            <h1 class="college-name">
+{{mainevent.clg_name}}            </h1>
+            <h2 class="department">
+                department of <br>
+                {{mainevent.dept_name}}
+            </h2>
+        </div>
+        <div class="timimg-box" id="countdown">
+            <div class="inner-div days">0 d</div>
+            <div class="inner-div hours">0 hrs</div>
+            <div class="inner-div mins">0 mins</div>
+            <div class="inner-div secs">0 secs</div>
+        </div>
+
+        </div>
+    </section>
+    <section class="events" id="events">
+        <div class="header">
+            <div class="cursive">
+                <span class="inner-line"></span>
+                Events
+                <span class="inner-line"></span>
+            </div>
+            <div class="title">Events</div>
+        </div>
+        <div class="events-display">
+             {% for event in events %}
+            <div class="events-card">
+                <div class="card-top">
+                    <div class="event-title">{{ event.event_name }}</div>
+                    <div class="event-image">
+                        <img src="{{ url_for('static', filename='img/'+event.images1) }}" alt="">
+                    </div>
+                </div>
+                <div class="event-description">
+                    {% for description in event.description.split('/') %} {{
+                        description.strip() }} <br />
+                        {% endfor %}
+                </div>
+                <div class="action-container">
+
+                    <a  href="{{ url_for('views.event_view', event_id=event.id) }}" class="action view"><i class="fas fa-eye"></i> view</a>
+                    <a href="/register" class="action register"><i class="fas fa-user-plus"></i> register</a>
+                </div>
+            </div>
+             {% endfor %}
+        </div>
+    </section>
+    <script>
+        const menu_btn = document.querySelector(".menu_btn");
+        menu_btn.addEventListener("click", function (){
+            document.querySelector(".menu_btn").classList.toggle("active");
+            document.querySelector(".nav_menu").classList.toggle("active");
+        })
+    </script>
+    <script src="static/js/particle.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Event</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Event</h2>
+        <form method="POST" action="{{ url_for('views.create_event') }}" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="coordinator_name">Coordinator Name:</label>
+        <input type="text" class="form-control" id="coordinator_name" name="coordinator_name" required>
+    </div>
+    <div class="form-group">
+        <label for="event_name">Event Name:</label>
+        <input type="text" class="form-control" id="event_name" name="event_name" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+    <div class="form-group">
+        <label for="place">Place:</label>
+        <input type="text" class="form-control" id="place" name="place" required>
+    </div>
+    <div class="form-group">
+        <label for="judge">Judge:</label>
+        <input type="text" class="form-control" id="judge" name="judge" required>
+    </div>
+    <div class="form-group">
+        <label for="number">Number:</label>
+        <input type="text" class="form-control" id="number" name="number" required>
+    </div>
+    <div class="form-group">
+        <label for="start_time">Start Time:</label>
+        <input type="time" class="form-control" id="start_time" name="start_time">
+    </div>
+    <div class="form-group">
+        <label for="end_time">End Time:</label>
+        <input type="time" class="form-control" id="end_time" name="end_time">
+    </div>
+    <div class="form-group">
+        <label for="images1">Image 1:</label>
+        <input type="file" class="form-control" id="images1" name="images1" required>
+    </div>
+    <div class="form-group">
+        <label for="images2">Image 2:</label>
+        <input type="file" class="form-control" id="images2" name="images2" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+    </div>
+</body>
+</html>

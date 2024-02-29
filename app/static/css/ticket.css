@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400;700&family=Orbitron&family=Protest+Revolution&family=Sixtyfour&display=swap");
+
+* {
+  font-family: "Protest Revolution", sans-serif;
+  margin: 0;
+  scroll-behavior: smooth;
+  padding: 0;
+  text-decoration: none;
+  /* color: #fff; */
+}
+body,
+header {
+  display: flex;
+  align-items: center;
+  background: #202020;
+  justify-content: center;
+  flex-direction: column;
+}
+.header--title {
+  margin-top: 30px;
+  color: #d8b106;
+  padding: 15px;
+  font-size: 2.5vw;
+}
+main {
+  margin: 50px;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.description {
+  /* display: flex; */
+  margin: 30px 50px 0 50px;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 1.7vw;
+  gap: 2vw;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.description--topic {
+  width: 100%;
+  /* display: flex; */
+  /* justify-content: center; */
+  align-items: center;
+  /* text-decoration: underline; */
+}
+.description-para span {
+  /* font-size: 30px; */
+  font-family: "Times New Roman", Times, serif;
+  color: #d8b106;
+}
+.main--title {
+  margin: 5px;
+  color: #d8b106;
+  font-size: 4vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.note--span {
+  font-size: 3vw;
+  /* font-family: "Protest Revolution", sans-serif!important; */
+}
+.note--sub-span {
+  font-size: 2.5vw;
+}
+.description-para {
+  word-spacing: 0.5vw;
+  gap: 1.8vw;
+  /* display: flex; */
+  flex-direction: column;
+  line-height: 1.5;
+  font-family: "Times New Roman", Times, serif;
+}
+.tl-fields,
+.tm-fields {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+.container {
+  margin: 50px;
+}
+input[type="text"] {
+  width: 38vw;
+  border-radius: 2px;
+  padding: 10px;
+  transition: 0.4s;
+  border: none;
+}
+input:hover {
+  transform: scale(1.02);
+  /* border: 1px solid #d8b106; */
+}
+label {
+  color: white;
+  font-size: 1.5vw;
+  margin-bottom: 8px;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.selects {
+  display: flex;
+  justify-content: space-between;
+}
+.pop-up {
+  font-size: 15px;
+  margin-left: 10px;
+  color: aqua;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.pop-up :hover {
+  transform: scale(1.2);
+}
+.events {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.technical,
+.non-technical {
+  display: flex;
+  height: 300px;
+  width: 50%;
+  margin-top: 30px;
+  /* justify-content: center; */
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+.tech,
+.non-tech {
+  font-size: 2vw;
+  color: #d8b106;
+}
+.radio-div {
+  display: flex;
+  gap: 15px;
+}
+.radio {
+  color: #d8b106;
+  cursor: pointer;
+}
+.submit-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.require {
+  color: rgb(254, 108, 108);
+}
+.submit-btn {
+  padding: 10px 25px;
+  background-color: #d8b106;
+  color: #202020;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 20px;
+  font-weight: bolder;
+  border-radius: 8px;
+}
+.submit-btn:hover {
+  transform: scale(1.1);
+}
+
+.popup {
+  position: fixed;
+  top: 0px;
+  animation: 0.3s pop-up ease-in forwards;
+  box-shadow: 0 0 10px 10px #202020;
+  backdrop-filter: blur(5px);
+  /* left: 50%; */
+  z-index: 10;
+  /* translate: -50% -50%; */
+  width: 510px;
+  max-height: 100vh;
+  overflow-y: scroll;
+  background-color: #ffffffc5;
+  border-radius: 10px;
+  padding: 20px 0;
+}
+
+@keyframes pop-up {
+  0% {
+    /* position: relative; */
+    margin-top: 100px;
+    opacity: 0;
+  }
+
+  100% {
+    /* position: fixed; */
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  box-shadow: 0 0 5px 5px #202020;
+  /* align-items: center; */
+  background-color: rgba(0, 0, 0, 0.919);
+  color: #d8b106;
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+.popup-span,
+.popup-description,
+.popup-rules ul li,
+.timings,
+.no-of-part,
+.venue,
+.incharge {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+.popup-rules ul li {
+  margin-top: 10px;
+}
+.popup-span {
+  margin: 10px 0 10px 0;
+  font-size: 2vw;
+  font-weight: 800;
+  color: rgb(174, 51, 20);
+}
+.popup-main {
+  position: relative;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  height: auto;
+}
+.close {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: #202020;
+  border-radius: 100%;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background-color: #202020;
+  color: #d8b106;
+}
+.no-of-part {
+  padding-top: 10px;
+  font-size: 20px;
+}
+.active {
+  filter: blur(5px);
+}
+.selects label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+/* .popup-open {
+  overflow: hidden;
+  position: absolute; 
+  width: calc(100% - 20px);
+  padding-right: 20px;
+} */
+@media all and (max-width: 430px) {
+  .note--span {
+    font-size: 26px;
+  }
+  .description-para {
+    flex-wrap: wrap;
+    font-size: 14px;
+    margin: 10px;
+  }
+  .main--title {
+    font-size: 34px;
+  }
+  .description {
+    margin: 10px;
+  }
+  .header--title {
+    font-size: 28px;
+  }
+  .input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .label {
+    font-size: 16px;
+    align-self: flex-start;
+    padding-left: 10px;
+  }
+  .selects {
+    flex-direction: column;
+  }
+  .technical,
+  .non-technical {
+    width: 90%;
+    height: 200px;
+  }
+  .tech,
+  .non-tech {
+    font-size: 25px;
+  }
+  .container {
+    margin: 15px;
+  }
+  .submit-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+  }
+  .tl-fields,
+  .tm-fields {
+    flex-direction: column;
+  }
+  input[type="text"] {
+    width: 90%;
+  }
+  .popup {
+    width: calc(100vw - 30px);
+  }
+  .popup-span,
+  .popup-description,
+  .popup-rules ul li,
+  .timings,
+  .no-of-part,
+  .venue,
+  .incharge {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 13px;
+    font-weight: 800;
+  }
+}

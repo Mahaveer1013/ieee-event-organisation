@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400;700&family=Orbitron&family=Protest+Revolution&family=Sixtyfour&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Protest Revolution", sans-serif;
+}
+.main {
+  background-color: #fff;
+  height: auto;
+}
+.header {
+  position: fixed;
+  width: 100vw;
+  background-color: #202020;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 70px;
+  margin: 10px;
+  /* border-radius: 50%; */
+}
+.logo-img {
+  width: 100%;
+}
+.logout-div {
+  margin: 30px;
+  margin-right: 15px;
+}
+.header-title {
+  font-size: 45px;
+  margin-top: 15px;
+  color: aliceblue;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+section {
+  width: 85%;
+  border: 1px solid rgb(10, 10, 10);
+  margin-top: 90px;
+  position: fixed;
+  right: 0;
+  /* overflow: scroll; */
+}
+.event-name {
+  font-size: 25px;
+  font-weight: 900;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 10px 0;
+  border: #202020 3px solid;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+a {
+  text-decoration: none;
+  padding: 20px;
+  font-size: 20px;
+  color: antiquewhite;
+}
+.container {
+  display: flex;
+}
+.frame {
+  border-bottom: 5px solid #202020;
+  display: flex;
+  padding: 0 20px;
+  margin-right: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+.side-menu {
+  position: fixed;
+  width: 15%;
+}
+.side-menu-ul {
+  width: 100%;
+  margin-top: 90px;
+  padding: 5px 0;
+  background-color: #202020;
+  list-style: none;
+  height: 100vh;
+}
+.side-menu-li {
+  /* border: ; */
+  padding: 15px 30px;
+  font-size: 18px;
+  color: aliceblue;
+  font-weight: 800;
+  border: 1px solid #fff;
+  border-left: 0;
+  border-right: 0;
+  width: 100%;
+}
+.table-container {
+  margin: 10px;
+}
+.frame-table {
+  /* margin: 10px; */
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: 500;
+}
+
+/* Style for table header */
+th {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+  text-align: left;
+  font-family: "Times New Roman", Times, serif;
+  padding: 8px;
+  font-size: 20px;
+}
+/* td:nth-child(1){
+    border-top:1px solid #fff ;
+  } */
+
+/* Style for table rows */
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/* Style for table data cells */
+td {
+  border: 1px solid #dddddd;
+  font-family: "Times New Roman", Times, serif;
+  text-align: left;
+  padding: 8px;
+}
+
+#search {
+  padding: 10px 15px;
+  border-radius: 20px;
+  width: 250px;
+}

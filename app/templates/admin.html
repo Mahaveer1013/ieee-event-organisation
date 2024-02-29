@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="static/css/admin.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="https://th.bing.com/th/id/OIP.g2uV0K9d5IC3XylP4A48jwHaHa?rs=1&pid=ImgDetMain"
+          />
+        </div>
+        <div class="header-title">Optiverve</div>
+        <div class="logout-div">
+          <a href="{{ url_for('auth.logout') }}">Logout</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="side-menu">
+          <ul class="side-menu-ul">
+            <li class="side-menu-li" index="1">
+              <a
+                href="{{ url_for('views.create_event') }}"
+                class="side-menu-li"
+                index="1"
+                >Create Event</a
+              >
+            </li>
+            <li class="side-menu-li" index="2">
+              <a
+                href="{{ url_for('views.list_event') }}"
+                class="side-menu-li"
+                index="1"
+                >Show Events</a
+              >
+            </li>
+            <li class="side-menu-li" index="3">
+              <a
+                href="{{ url_for('views.create_event_basic') }}"
+                class="side-menu-li"
+                index="1"
+                >Add Event Details</a
+              >
+            </li>
+          </ul>
+        </div>
+        <section index="1">
+          <div class="frame">
+            <div class="event-name">
+              <input type="search" name="search" id="search" />
+              by Event Name
+            </div>
+            <div class="download-btn" onclick="downloadTableAsExcel()">
+              <i class="fas fa-download"></i>
+            </div>
+          </div>
+          <div class="table-container">
+            <table class="frame-table" index="1">
+              <tr>
+                <th>Sno</th>
+                <th>Lead name</th>
+                <th>Member name</th>
+                <th>Lead roll no</th>
+                <th>Member roll no</th>
+                <th>Lead Section</th>
+                <th>Member Section</th>
+                <th>Lead Email</th>
+                <th>Member email</th>
+                <th>Event name</th>
+              </tr>
+
+              <tbody>
+                {% for event in events %}
+                <tr>
+                  <td>{{ loop.index }}</td>
+                  <td>{{ event.team_leader_name }}</td>
+                  <td>{{ event.team_member_name }}</td>
+                  <td>{{ event.team_leader_roll }}</td>
+                  <td>{{ event.team_member_roll }}</td>
+                  <td>{{ event.team_leader_section }}</td>
+                  <td>{{ event.team_member_section }}</td>
+                  <td>{{ event.team_leader_email }}</td>
+                  <td>{{ event.team_member_email }}</td>
+                  <td>{{ event.event_type }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      function downloadTableAsExcel() {
+        var table = document.querySelector(".frame-table");
+        var rows = table.querySelectorAll("tr");
+        var csvContent = "data:text/csv;charset=utf-8,";
+
+        rows.forEach(function (row) {
+          var rowData = [];
+          var cols = row.querySelectorAll("td, th");
+          cols.forEach(function (col) {
+            rowData.push(col.innerText);
+          });
+          csvContent += rowData.join(",") + "\n";
+        });
+
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "table_data.csv");
+        document.body.appendChild(link);
+
+        link.click(); // This will download the data file named "table_data.csv".
+      }
+
+      // Call the function to download the table as Excel
+      // downloadTableAsExcel();
+    </script>
+    <script src="admin.js"></script>
+  </body>
+</html>
